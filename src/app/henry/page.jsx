@@ -4,9 +4,16 @@ async function getHenry() {
   return data;
 }
 
+export async function generateMetadata() {
+  const { name, age } = await getHenry();
+
+  return {
+    title: name,
+    description: `${name} is ${age} years old`,
+  };
+}
 export default async function HenryPage() {
   const data = await getHenry();
-  console.log(data);
   return (
     <main>
       <h1>Mit navn er {data.name}</h1>
